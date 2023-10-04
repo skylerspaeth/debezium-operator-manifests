@@ -29,12 +29,10 @@ Following these steps to generate OLM bundle manifest for new Debezium Operator 
 ```bash
 # Change the following
 export DEBEZIUM_VERSION="2.4.0"
-export MAVEN_REPO_CENTRAL="https://repo1.maven.org/maven2"
-export BUNDLE_URL="$MAVEN_REPO_CENTRAL/io/debezium/debezium-operator/$DEBEZIUM_VERSION/debezium-operator-$DEBEZIUM_VERSION-olm-bundle.zip"
 
-# Add bundle to olm/bundles
+# Install bundle to olm/bundles
 # (and commit right away)
-./scripts/install-olm-bundle.sh -u "$BUNDLE_URL" -v $DEBEZIUM_VERSION --commit
+./scripts/install-olm-bundle.sh -v $DEBEZIUM_VERSION --commit
 
 # Alternatively you can also add bundle from  local file
 # ./scripts/install-olm-bundle.sh -i "$BUNDLE_ZIP" -v $DEBEZIUM_VERSION --commit
