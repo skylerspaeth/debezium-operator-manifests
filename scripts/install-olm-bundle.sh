@@ -17,14 +17,16 @@ TMP_WORKDIR=$(mktemp -d)
 COMMIT=false
 PUSH=false
 VALIDATE=false
+LEGACY=false
 
 # Process script options
 while true; do
   case "$1" in
-    -v | --version )            DEBEZIUM_VERSION=$2;                  shift; shift ;;
+    -v | --version )            DEBEZIUM_VERSION=$2;                shift; shift ;;
     -i | --input )              INPUT_FILE=$2;                      shift; shift ;;
     -u | --input-url )          INPUT_URL=$2;                       shift; shift ;;
     -f | --force )              FORCE=true;                         shift ;;
+    --legacy )                  LEGACY=true;                        shift ;;
     --validate )                VALIDATE=true;                      shift ;;
     --commit )                  COMMIT=true;                        shift ;;
     --push )                    COMMIT=true;
@@ -48,7 +50,10 @@ if [[ ! -z "${BUNDLE_VERSION:-}" ]]; then
 fi
 
 if [[ -z "${INPUT_URL:-}" && -z "${INPUT_FILE:-}" ]]; then
-  INPUT_URL="$MAVEN_REPO_CENTRAL/io/debezium/debezium-operator/$DEBEZIUM_VERSION/debezium-operator-$DEBEZIUM_VERSION-olm-bundle.zip"
+  INPUT_URL="$MAVEN_REPO_CENTRAL/io/debezium/debezium-operator-dist/$DEBEZIUM_VERSION/debezium-operator-dist-$DEBEZIUM_VERSION-olm-bundle.zip"
+  if $LEGACY; then
+    INPUT_URL="$MAVEN_REPO_CENTRAL/io/debezium/debezium-operator/$DEBEZIUM_VERSION/debezium-operator-$DEBEZIUM_VERSION-olm-bundle.zip"
+  fi
 fi
 
 if [[ ! -z "${INPUT_URL:-}" ]]; then
