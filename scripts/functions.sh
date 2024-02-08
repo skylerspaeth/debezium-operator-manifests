@@ -1,3 +1,11 @@
+function chartPath() {
+  find "$1" -type f -name 'Chart.yaml'
+}
+
+function chartVersion() {
+  yq ".version" $(chartPath $1)
+}
+
 function csvPath() {
   find "$1" -type f -name '*.clusterserviceversion.yaml'
 }
