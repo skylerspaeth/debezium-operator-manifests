@@ -95,7 +95,7 @@ if [[ "$COMMIT" = true ]]; then
   echo ""
   echo "Committing chart to repository"
   git add "$OUTPUT_DIR"
-  git commit -m "operator chart debezium-operator-($CHART_VERSION)"
+  git commit -m "operator chart debezium-operator-$CHART_VERSION"
 fi
 
 if [[ "$PUSH" = true ]]; then
