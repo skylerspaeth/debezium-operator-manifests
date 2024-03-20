@@ -82,8 +82,6 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: QUARKUS_OPERATOR_SDK_CONTROLLERS_DEBEZIUMSERVER_NAMESPACES
-                  value: "{watchNamespaces}"
-                - name: QUARKUS_OPERATOR_SDK_CONTROLLERS_DEBEZIUMSERVER_NAMESPACES
                   valueFrom:
                     fieldRef:
                       fieldPath: "metadata.annotations['olm.targetNamespaces']"
