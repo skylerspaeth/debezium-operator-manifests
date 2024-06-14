@@ -1,0 +1,5 @@
+---
+name: "debezium-operator"
+version: "2.7.0-beta2"
+apiVersion: "v2"
+appVersion: "2.7.0-beta2"
