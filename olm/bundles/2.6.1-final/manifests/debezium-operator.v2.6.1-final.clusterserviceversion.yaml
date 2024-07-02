@@ -287,4 +287,4 @@ spec:
     name: Debezium Authors
     url: https://debezium.io/
   version: 2.6.1-final
-  replaces: debezium-operator.2.6.0-final
+  replaces: debezium-operator.v2.6.0-final
