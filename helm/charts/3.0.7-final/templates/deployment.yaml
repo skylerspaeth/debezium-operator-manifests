@@ -29,7 +29,7 @@ spec:
               fieldPath: "metadata.namespace"
         - name: "QUARKUS_OPERATOR_SDK_CONTROLLERS_DEBEZIUMSERVER_NAMESPACES"
           value: {{ .Values.watchNamespaces }}
-        image: "quay.io/debezium/operator:3.0.7.Final"
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: "Always"
         livenessProbe:
           failureThreshold: 3
