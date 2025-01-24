@@ -1,2 +1,6 @@
 ---
 watchNamespaces: "JOSDK_ALL_NAMESPACES"
+image:
+  registry: quay.io
+  repository: debezium/operator
+  tag: "3.0.0.Final"
